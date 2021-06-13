@@ -1,0 +1,125 @@
+.wrappers{
+	width: 680px;
+	position: relative;
+	left: 1%;
+	transition: all 0.85s;
+}
+.navigation{
+	display: inline-block;
+	cursor: pointer;
+}
+.headline_text{
+	margin:5px 0px;
+}
+.conteiner_comment_form{
+	box-sizing: border-box;
+	width: 677px;
+	height: 400px;
+	display: inline-block;
+	position: relative;
+}
+.nav_name{
+	width: 100%;
+	height: 30px;
+}
+.text_user{
+	display: inline-block;
+	position: relative;
+	margin: 2px 0px;
+	font-size: 19px;
+	margin-left: 165px;
+	font-family: georgia;
+	color:#222;
+	left:-165px;
+}
+.textname{
+	position:relative;
+	height: 30px;
+	width:327px;
+	outline:none;
+}
+#child1 {
+	margin-left: 91px;
+	left:38px;
+}
+.heder_comment_text{
+	margin:19px 0px 3px 0px;
+	font-family: georgia;
+	font-weight: 300;
+	font-size: 19px;
+	color:#222;
+}
+.text_message{
+	width:668px;
+	height: 234px;
+	outline: none;
+}
+.post_comment{
+	position: relative;
+	top:5px;
+	padding:10px 10px;
+	cursor: pointer;
+	background-color: steelblue;
+	color:#fff;
+	box-sizing: border-box;
+	font-size: 21px;
+	border:none;
+	border-radius: 4px;
+	box-shadow: 0px 1px 2px #555;
+	outline: none;
+	transition: box-shadow 0.3s;
+}
+.post_comment:hover{
+	box-shadow: 1px 2px 2px #555, -1px -1px 2px #555;
+}
+form{
+	position: relative;
+	top:-3px;
+}
+/*вывод комментариев из базы*/
+
+.conteiner_comments{
+	width:672px;
+	border-bottom: 1px solid #333;
+	margin-top: 10px;
+	box-sizing: border-box;
+	min-height: 85px;
+}
+.box_text_names{
+	margin:0;
+	font-size: 18px;
+}
+
+.span_names{
+	font-size: 24px;
+	color:orangered;
+	font-weight: bold;
+	margin-right: 20px;
+	text-shadow: 1px 1px #555;
+	position: relative;
+	left:10px;
+}
+.span_email{
+	font-family: verdan;
+	text-decoration: underline;
+}
+.box_text_messages {
+	margin:8px 0px;
+	font-size: 17px;
+	background: #DCF8C6;
+	color: #000;
+	padding: 20px 24px;
+	border-radius: 50px;
+	box-shadow: 1px 1px 2px #444, -1px -1px #444;
+}
+.box_data{
+	font-weight: bold;
+	display: inline-block;
+	position: relative;
+	left:521px;
+	margin: 0;
+}
+.imgs{
+	max-width: 100%;
+	position: absolute;
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex, nofollow"/>	
+  <title>калькулятор</title>
+  <style>
+	h3, p{margin:0px 0px;}
+	body{text-align:center;}
+	.box_heder_calculator{
+		width:500px; min-height:220px; height:auto; position:relative;
+		left:50%; margin-left:-250px; margin-top:60px;
+	}
+	#calculator{
+	width:202px; height:202px; border:1px solid #000000; padding:4px 4px; position:relative;
+	margin:0 auto; background:linear-gradient(#E1F3F6, #A5B3B5); box-shadow:1px 1px 3px #000000;
+	display:inline-block;
+	}
+	#inp_text{
+		width:191px; height:30px; background-color:#ffffff; border:1px solid #000000; outline:none;
+		padding-right:5px; text-align:right; display:block; margin:4px 2px; color:#0004FF; font-weight:bold;
+		font-size:18px;
+	}
+	#button_delete{
+		position:absolute; width:20px; height:20px; font-size:12px; line-height:20px; border:1px solid #000000;
+		margin-top:-32.5px; left:12px; cursor:pointer; transition:background-color 0.3s, color 0.3s;
+	}
+	#button_delete:hover{background-color:#000000; color:#ffffff;}
+	.buttons{
+		width:40px; height:30px; border:1px solid #000000; margin:2.7px; line-height:30px;
+		display:inline-block; text-align:center; font-size:16px; cursor:pointer;
+		background-color:#ffffff; transition:background-color 0.3s, color 0.3s;
+		box-shadow:1px 1px 2px #44474A; border-radius:2px; background-color:#90969D; color:blue;
+	}
+	.buttons:hover{background-color:#000000; color:red;} .buttons:active{background-color:#1E1E1E; color:#FFDD00;}
+	.box_form{
+		width:400px; min-height:200px; height:auto;
+		position:relative;
+		top:20px; left:50%; margin-left:-200px;
+	}
+	.input_number{
+		display:block; position:relative; left:50%; margin-left:-87px; top:10px; margin-top:5px;
+		height:25px; outline:none; background-color:#F0F0F0; border:1px solid #4A4A4A; border-radius:4px;
+	}
+	#clicks{
+	position:relative; top:20px; font-size:20px; outline:none; cursor:pointer; padding:5px 50px;
+	transition: background-color 0.5s, color 0.5s;
+	}
+	#clicks:hover{background-color:#000000; color:yellow;}
+	#textid{position:relative; top:10px; font-size:20px; font-weight:bold;}
+	#box_histori_result{
+		display:inline-block; position:absolute; width:250px; min-height:200px;
+		left:370px; top:1px; height:auto;
+	}
+	#delete_buttun{
+		position:relative; display:block; margin-top:25px; left:50%; margin-left:-127.83px; cursor:pointer;
+		font-size:16px; padding:8.5px 93.3px; border:none; background:linear-gradient(red, #770000);
+		box-shadow:1px 3px 2px #242424; color:#ffffff; border-radius:2px; margin-bottom:1px; outline:none;
+
+	}
+	#delete_buttun:active{
+
+		  box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1)
+
+			inset;box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1)
+
+		inset;
+		  -moz-transform: translatey(3px); /* Для Firefox */
+		  -ms-transform: translatey(3px); /* Для IE */
+		  -webkit-transform: translatey(3px); /* Для Safari, Chrome, iOS */
+		  -o-transform:translatey(3px); /* Для Opera */
+		  transform: translatey(3px);
+
+	}
+	.class-text-result{
+		font-size:18px; color:#ffffff; font-weight:400; padding:7px 0px; box-shadow:1px 3px 2px #000000;
+		text-align:left; background-color:blue; margin:5px 0px; padding-left:7px; font-family:Tahoma;
+		border-radius:2px; transition: 1s;
+	}
+	#box_message_error{
+	position:absolute; display:inline-block; width:250px; min-height:40px; height:auto;
+	background-color:#16A085;
+	top:1px; left:41%; border-radius:4px; color:#ffffff; box-shadow:1px 1px 3px #000000, -1px -1px 3px #000000;
+	line-height:40px; font-size:20px; opacity:0; transition: opacity 1s;
+	}
+	#box_message_error:after{
+	content:"";
+	position:absolute;
+	width:8px; height:8px;
+	top:40px; left:110px;
+	border: 15px solid transparent; border-top: 20px solid #16A085;
+	z-index:1;
+	}
+
+
+	.box_div_image{
+		width:512px; height:512px; position: relative; left:50%; margin-left:-256px;
+	}
+	.spn_value{
+		font-size:12px;
+	}
+</style>
+ </head>
+ <body>
+	<div id="box_message_error">
+		Введите цифры в поле!
+	</div>
+ <div class="box_heder_calculator">
+	<div id="calculator">
+		<input type="text" id="inp_text" disabled>
+		<div id="button_delete" title="очистить">C</div>
+			<div class="buttons">7</div>
+			<div class="buttons">8</div>
+			<div class="buttons">9</div>
+			<div class="buttons">&divide</div>
+			<div class="buttons">4</div>
+			<div class="buttons">5</div>
+			<div class="buttons">6</div>
+			<div class="buttons">&times</div>
+			<div class="buttons">1</div>
+			<div class="buttons">2</div>
+			<div class="buttons">3</div>
+			<div class="buttons">-</div>
+			<div class="buttons">0</div>
+			<div class="buttons">.</div>
+			<div class="buttons">=</div>
+			<div class="buttons">+</div>
+	</div>
+
+	  <div id="box_histori_result">
+		<h3 id="text_hestori">История опреций</h3>
+		<button id="delete_buttun">Очистить</button>
+	  </div>
+</div>
+
+	<script>
+{		//калькулятор js 
+	/*=================================================кнопка очистить ===========================================*/
+	window.addEventListener("keydown", function(e) {
+		if (e.key === "*") {
+			input.value += mas_nomber[7].innerHTML;
+
+		}
+		if (e.key === "/") {
+			input.value += mas_nomber[3].innerHTML;
+		}
+		if (e.key !== "Enter" && e.location !== 0 && e.key !== "*" && e.location !== 1 && e.location !== 2 && e.key !== "/") {
+			input.value += e.key;
+
+		}
+		if (e.key === "Backspace") {
+			input.value = "";
+		}
+		if (e.key === "Enter") {
+			if (input.value === "") {
+				alert("Пустое значение, ведите значения");
+				return false;
+			}
+
+			if (input.value.includes("×")) {
+				var inptext = input.value; // сохраняем в переменную значения из input
+				var arrays = input.value.split("×");
+				var arraysResult = arrays[0] * arrays[1];
+				input.value = arraysResult; // добавка в инпут
+				var historText = document.createElement("p"); 
+				historText.className = "class-text-result"; 
+				historText.id = "text-result";
+				historText.innerHTML = "<span class='spn_value' style='display:block;'>" + inptext + "</span>" + " = " + arraysResult; // добовляемтекст в инпут
+				document.getElementById("text_hestori").after(historText); // добовляем тег на страницу
+
+			}
+			if (input.value.includes("÷")) {
+				var inptext = input.value; // сохраняем в переменную значения из input
+				var arrays = input.value.split("÷");
+				var arraysResult = arrays[0] / arrays[1];
+				input.value = arraysResult; // добавка в инпут
+				var historText = document.createElement("p"); 
+				historText.className = "class-text-result"; 
+				historText.id = "text-result";
+				historText.innerHTML = "<span class='spn_value' style='display:block;'>" + inptext + "</span>" + " = " + arraysResult; // добовляемтекст в инпут
+				document.getElementById("text_hestori").after(historText); // добовляем тег на страницу
+			
+
+			}
+			if (input.value.includes("-")) {
+				var inptext = input.value; // сохраняем в переменную значения из input
+				var arrays = input.value.split("-");
+				var arraysResult = arrays[0] - arrays[1];
+				input.value = arraysResult; // добавка в инпут
+				var historText = document.createElement("p"); 
+				historText.className = "class-text-result"; 
+				historText.id = "text-result";
+				historText.innerHTML = "<span class='spn_value' style='display:block;'>" + inptext + "</span>" + " = " + arraysResult; // добовляемтекст в инпут
+				document.getElementById("text_hestori").after(historText); // добовляем тег на страницу
+			
+
+			}
+			if (input.value.includes("+")) {
+				var inptext = input.value; // сохраняем в переменную значения из input
+				var arrays = input.value.split("+");
+				var arraysResult = +arrays[0] + +arrays[1]; // переводим данные в челочисленное значение
+				input.value = arraysResult; // добавка в инпут
+				var historText = document.createElement("p"); 
+				historText.className = "class-text-result"; 
+				historText.id = "text-result";
+				historText.innerHTML = "<span class='spn_value' style='display:block;'>" + inptext + "</span>" + " = " + arraysResult; // добовляемтекст в инпут
+				document.getElementById("text_hestori").after(historText); // добовляем тег на страницу
+				
+
+			}
+			
+			
+
+		}
+	
+	});
+	
+
+	var but_del = document.getElementById("delete_buttun").addEventListener("click", functcdel);
+	function functcdel() {
+	var box_div_result = document.getElementById("box_histori_result"); //блок див
+		var par_class_text = document.getElementsByClassName("class-text-result"); //параграф массив
+		var masv = Array.prototype.slice.call(par_class_text);
+		for (var i = 0, p = masv.length; i < p; i++) 
+		masv[i].remove();
+	}
+
+	{
+
+	var rezult1; //результат
+	var x; //счетчик
+	var input = document.getElementById("inp_text"); //input глобальный
+	var vali; // счетчик value input
+		var mas_nomber = document.getElementsByClassName("buttons");
+
+		for (var i = 0; i < mas_nomber.length; i++) {
+		 if(i == 3) {continue;} if (i == 14) {continue;} //вышфыриваем из цикла
+			mas_nomber[i].addEventListener("click", functmas_nomber);
+			mas_nomber[7].addEventListener("click", functmas_nomber7);
+			mas_nomber[11].addEventListener("click", functmas_nomber11);
+			mas_nomber[15].addEventListener("click", functmas_nomber15);
+		}
+		mas_nomber[3].addEventListener("click", functmas_nomber3);
+		mas_nomber[14].addEventListener("click", functmas_nomber14);
+
+		function functmas_nomber() {
+			var ins = document.getElementById("inp_text");
+			var input = document.getElementById("inp_text").value += this.innerHTML;
+			ins.style.borderColor = "";
+			boxmessage.style.opacity = "0";
+
+		}
+		function functmas_nomber3() { //функция деления
+			var input = document.getElementById("inp_text").value += "/";
+			x = 0;
+		}
+		function functmas_nomber7() {
+			x = 1;
+		}
+		function functmas_nomber11() {
+			x = 2;
+		}
+		function functmas_nomber15() {
+			x = 3;
+		}
+
+		/*===========================================событие на знаке равно==========================*/
+		function functmas_nomber14() { //функция результата выроженияы
+			if(x == 0) {
+				var summa = document.getElementById("inp_text").value; 
+				vali = summa;
+				var massiv = summa.split("/");
+				rezult1 = massiv[0] / massiv[1];
+				if (isNaN(rezult1) || rezult1 == "Infinity") {
+					summa = document.getElementById("inp_text").value = "";
+				}
+				else {
+				summa = document.getElementById("inp_text").value = rezult1;
+				}
+			}
+			else if (x == 1) {
+				var summa = document.getElementById("inp_text").value;
+				vali = summa;
+				var massiv = summa.split("×");
+				rezult1 = massiv[0] * massiv[1];
+				if (isNaN(rezult1) || rezult1 == "Infinity") {
+					summa = document.getElementById("inp_text").value = ""; //text-result
+				}
+				else {
+				summa = document.getElementById("inp_text").value = rezult1;
+				}
+			}
+			else if (x == 2) {
+				var summa = document.getElementById("inp_text").value;
+				vali = summa;
+				var massiv = summa.split("-");
+				rezult1 = massiv[0] - massiv[1];
+				if (isNaN(rezult1) || rezult1 == "Infinity") {
+					summa = document.getElementById("inp_text").value = "";
+				}
+				else{
+				summa = document.getElementById("inp_text").value = rezult1;
+				}
+			}
+			else if (x == 3) {
+				var summa = document.getElementById("inp_text").value;
+				vali = summa;
+				var massiv = summa.split("+");
+				var n1 = massiv[0];
+				var n2 = massiv[1];
+				n1 = parseFloat(n1);
+				n2 = parseFloat(n2);
+				rezult1 = n1 + n2;
+				if (isNaN(rezult1) || rezult1 == "Infinity") {
+					summa = document.getElementById("inp_text").value = "";
+				}
+				else {
+				summa = document.getElementById("inp_text").value = rezult1;
+				}
+			}
+			var valuest = document.getElementById("inp_text").value;
+		var tetx_histori = document.getElementById("text_hestori");
+		var box_div_result = document.getElementById("box_histori_result"); //блок div
+		var parresylt = document.createElement("p");
+		if(rezult1 == undefined || isNaN(rezult1) || rezult1 == "Infinity") {
+			input.style.borderColor = "red";
+			boxmessage.style.opacity = "1";
+		}
+		else {
+			parresylt.id = "text-result";
+			parresylt.className = "class-text-result";
+			parresylt.innerHTML = '<span class="spn_value">' + vali + '<br>' + '</span>' + ' = ' + rezult1;
+			tetx_histori.after(parresylt);
+			
+			}
+		}
+		/*====================================================скрипт очистки содержимого================================*/
+		var boxmessage = document.getElementById("box_message_error");
+		var input = document.getElementById("inp_text"); //input глобальный
+		var delts = document.getElementById("button_delete").addEventListener("click", functbutton_delete);
+		function functbutton_delete() {
+			input.value = "";
+
+
+		}
+	}
+}
+	</script>
+ </body>
+</html>

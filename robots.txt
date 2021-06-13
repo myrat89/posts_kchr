@@ -1,0 +1,5 @@
+User-agent:*
+Disallow:/configadmin.php
+Disallow:/admin.php
+Disallow:/user_message.php
+Disallow:/sharse.php
